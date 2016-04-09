@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET         /                            controllers.Application.index()
+
+#GET         /ws                          controllers.Application.externalWs()
+
+GET         /twitter/homeTimeline        controllers.Twitter.homeTimeline()
+GET         /twitter/auth                controllers.Twitter.auth()
+
+GET         /contacts                    controllers.Agenda.list()
+
+GET         /contacts/new                controllers.Agenda.newContact()
+POST        /contacts/new                controllers.Agenda.createContact()
+POST        /contacts/createJson         controllers.Agenda.createContactJson()
+
+GET         /contacts/:id                controllers.Agenda.show(id: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                controllers.Assets.versioned(path="/public", file: Asset)
+
+# Play WebJars Support
+GET         /webjars/*file               controllers.WebJarAssets.at(file)
